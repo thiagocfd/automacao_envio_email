@@ -1,0 +1,5 @@
+# vars.yml
+smtp_username: seu_email@hotmail.com
+smtp_password: sua_senha_secreta
+email_from: seu_email@hotmail.com
+email_to: teste_receber@gmail.com

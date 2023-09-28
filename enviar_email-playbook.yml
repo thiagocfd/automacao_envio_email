@@ -1,0 +1,17 @@
+- name: Enviar email a partir de um template
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Enviar email
+      mail:
+        host: smtp.office365.com
+        port: 587
+        username: "{{ smtp_username }}"  # Seu endereço de email do Hotmail
+        password: "{{ smtp_password }}"  # Sua senha do Hotmail
+        subject: "Relatório Diário"
+        body: "Fazendo um teste"
+        from: "{{ email_from }}"  # Usar o endereço do remetente definido em vars.yml
+        to: "{{ email_to }}"  # Usar o endereço do destinatário definido em vars.yml
+        charset: utf8
+      environment:
+        SMTP_TLS_CA_CERTS: /etc/ssl/certs/ca-certificates.crt  # Caminho do certificado genérico
